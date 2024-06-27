@@ -1,0 +1,1494 @@
+Coverage Report by DU with details
+
+=================================================================================
+=== Design Unit: work.AES_Encrypt
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                       3072      3072         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.AES_Encrypt
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                             afterShiftRows[0-127]           1           1      100.00 
+                              afterSubBytes[0-127]           1           1      100.00 
+                                fullkeys[128-1279]           1           1      100.00 
+                                        out[0-127]           1           1      100.00 
+
+Total Node Count     =       1536 
+Toggled Node Count   =       1536 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (3072 of 3072 bins)
+
+=================================================================================
+=== Design Unit: work.addRoundKey
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       1         1         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.addRoundKey --
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+    695                                                 assign shifted[88+:8] = in[56+:8];
+    696                                                 assign shifted[120+:8] = in[88+:8];
+    697                                              
+    698                                              endmodule
+    699                                              module addRoundKey(data, out, key);
+    700                                              
+    701             1                      40314     input [127:0] data;
+
+
+=================================================================================
+=== Design Unit: work.encryptRound
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                       1792      1536       256    85.71%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.encryptRound
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                           afterAddroundKey[0-127]           0           0        0.00 
+                            afterMixColumns[0-127]           9           9      100.00 
+                             afterShiftRows[0-127]           9           9      100.00 
+                              afterSubBytes[0-127]           9           9      100.00 
+                                         in[0-127]           9           9      100.00 
+                                        key[0-127]           9           9      100.00 
+                                        out[0-127]           9           9      100.00 
+
+Total Node Count     =        896 
+Toggled Node Count   =        768 
+Untoggled Node Count =        128 
+
+Toggle Coverage      =      85.71% (1536 of 1792 bins)
+
+=================================================================================
+=== Design Unit: work.keyExpansion
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                       270       268         2    99.25%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.keyExpansion
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+------------------------------------IF Branch------------------------------------
+    65                                     22560     Count coming in to IF
+    65              1                       5640     //The first [(nk*32)-1 ]-bit key is stored in W.
+    71              1                      16920     		x = subwordx (rot);	//A call to the function subwordx() is done and the returned value is stored in x.
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    103                                    22560     Count coming in to CASE
+    104             1                        306     
+    105             1                        119     function [7:0] c(input [7:0] a);  
+    106             1                         95     begin
+    107             1                         73         case (a)
+    108             1                         98           8'h00: c=8'h63;
+    109             1                         98     	   8'h01: c=8'h7c;
+    110             1                        105     	   8'h02: c=8'h77;
+    111             1                         77     	   8'h03: c=8'h7b;
+    112             1                        110     	   8'h04: c=8'hf2;
+    113             1                         92     	   8'h05: c=8'h6b;
+    114             1                         89     	   8'h06: c=8'h6f;
+    115             1                         87     	   8'h07: c=8'hc5;
+    116             1                         84     	   8'h08: c=8'h30;
+    117             1                         83     	   8'h09: c=8'h01;
+    118             1                         92     	   8'h0a: c=8'h67;
+    119             1                         98     	   8'h0b: c=8'h2b;
+    120             1                        110     	   8'h0c: c=8'hfe;
+    121             1                         79     	   8'h0d: c=8'hd7;
+    122             1                         84     	   8'h0e: c=8'hab;
+    123             1                         99     	   8'h0f: c=8'h76;
+    124             1                         94     	   8'h10: c=8'hca;
+    125             1                         81     	   8'h11: c=8'h82;
+    126             1                        148     	   8'h12: c=8'hc9;
+    127             1                        131     	   8'h13: c=8'h7d;
+    128             1                         80     	   8'h14: c=8'hfa;
+    129             1                         86     	   8'h15: c=8'h59;
+    130             1                         69     	   8'h16: c=8'h47;
+    131             1                         90     	   8'h17: c=8'hf0;
+    132             1                         61     	   8'h18: c=8'had;
+    133             1                         92     	   8'h19: c=8'hd4;
+    134             1                         84     	   8'h1a: c=8'ha2;
+    135             1                         80     	   8'h1b: c=8'haf;
+    136             1                        101     	   8'h1c: c=8'h9c;
+    137             1                         80     	   8'h1d: c=8'ha4;
+    138             1                         88     	   8'h1e: c=8'h72;
+    139             1                         66     	   8'h1f: c=8'hc0;
+    140             1                         85     	   8'h20: c=8'hb7;
+    141             1                         76     	   8'h21: c=8'hfd;
+    142             1                         90     	   8'h22: c=8'h93;
+    143             1                         71     	   8'h23: c=8'h26;
+    144             1                         93     	   8'h24: c=8'h36;
+    145             1                         70     	   8'h25: c=8'h3f;
+    146             1                         72     	   8'h26: c=8'hf7;
+    147             1                        100     	   8'h27: c=8'hcc;
+    148             1                         82     	   8'h28: c=8'h34;
+    149             1                         90     	   8'h29: c=8'ha5;
+    150             1                         75     	   8'h2a: c=8'he5;
+    151             1                         80     	   8'h2b: c=8'hf1;
+    152             1                         80     	   8'h2c: c=8'h71;
+    153             1                         73     	   8'h2d: c=8'hd8;
+    154             1                         73     	   8'h2e: c=8'h31;
+    155             1                         96     	   8'h2f: c=8'h15;
+    156             1                         84     	   8'h30: c=8'h04;
+    157             1                         66     	   8'h31: c=8'hc7;
+    158             1                         75     	   8'h32: c=8'h23;
+    159             1                         84     	   8'h33: c=8'hc3;
+    160             1                         74     	   8'h34: c=8'h18;
+    161             1                         77     	   8'h35: c=8'h96;
+    162             1                         78     	   8'h36: c=8'h05;
+    163             1                         74     	   8'h37: c=8'h9a;
+    164             1                         96     	   8'h38: c=8'h07;
+    165             1                         74     	   8'h39: c=8'h12;
+    166             1                         76     	   8'h3a: c=8'h80;
+    167             1                         94     	   8'h3b: c=8'he2;
+    168             1                         89     	   8'h3c: c=8'heb;
+    169             1                         98     	   8'h3d: c=8'h27;
+    170             1                         80     	   8'h3e: c=8'hb2;
+    171             1                         75     	   8'h3f: c=8'h75;
+    172             1                         85     	   8'h40: c=8'h09;
+    173             1                        102     	   8'h41: c=8'h83;
+    174             1                         79     	   8'h42: c=8'h2c;
+    175             1                        117     	   8'h43: c=8'h1a;
+    176             1                        101     	   8'h44: c=8'h1b;
+    177             1                         89     	   8'h45: c=8'h6e;
+    178             1                         76     	   8'h46: c=8'h5a;
+    179             1                        110     	   8'h47: c=8'ha0;
+    180             1                         94     	   8'h48: c=8'h52;
+    181             1                         94     	   8'h49: c=8'h3b;
+    182             1                         89     	   8'h4a: c=8'hd6;
+    183             1                         70     	   8'h4b: c=8'hb3;
+    184             1                         91     	   8'h4c: c=8'h29;
+    185             1                        102     	   8'h4d: c=8'he3;
+    186             1                         74     	   8'h4e: c=8'h2f;
+    187             1                         52     	   8'h4f: c=8'h84;
+    188             1                         84     	   8'h50: c=8'h53;
+    189             1                         70     	   8'h51: c=8'hd1;
+    190             1                         81     	   8'h52: c=8'h00;
+    191             1                         71     	   8'h53: c=8'hed;
+    192             1                         83     	   8'h54: c=8'h20;
+    193             1                         77     	   8'h55: c=8'hfc;
+    194             1                         93     	   8'h56: c=8'hb1;
+    195             1                         80     	   8'h57: c=8'h5b;
+    196             1                         82     	   8'h58: c=8'h6a;
+    197             1                         80     	   8'h59: c=8'hcb;
+    198             1                         66     	   8'h5a: c=8'hbe;
+    199             1                         75     	   8'h5b: c=8'h39;
+    200             1                        105     	   8'h5c: c=8'h4a;
+    201             1                         82     	   8'h5d: c=8'h4c;
+    202             1                        108     	   8'h5e: c=8'h58;
+    203             1                        166     	   8'h5f: c=8'hcf;
+    204             1                         83     	   8'h60: c=8'hd0;
+    205             1                         67     	   8'h61: c=8'hef;
+    206             1                        103     	   8'h62: c=8'haa;
+    207             1                         80     	   8'h63: c=8'hfb;
+    208             1                         86     	   8'h64: c=8'h43;
+    209             1                         65     	   8'h65: c=8'h4d;
+    210             1                        113     	   8'h66: c=8'h33;
+    211             1                         88     	   8'h67: c=8'h85;
+    212             1                         78     	   8'h68: c=8'h45;
+    213             1                         77     	   8'h69: c=8'hf9;
+    214             1                         88     	   8'h6a: c=8'h02;
+    215             1                         91     	   8'h6b: c=8'h7f;
+    216             1                         81     	   8'h6c: c=8'h50;
+    217             1                         76     	   8'h6d: c=8'h3c;
+    218             1                         70     	   8'h6e: c=8'h9f;
+    219             1                         77     	   8'h6f: c=8'ha8;
+    220             1                         71     	   8'h70: c=8'h51;
+    221             1                         71     	   8'h71: c=8'ha3;
+    222             1                         85     	   8'h72: c=8'h40;
+    223             1                         90     	   8'h73: c=8'h8f;
+    224             1                         84     	   8'h74: c=8'h92;
+    225             1                         83     	   8'h75: c=8'h9d;
+    226             1                         68     	   8'h76: c=8'h38;
+    227             1                         73     	   8'h77: c=8'hf5;
+    228             1                         73     	   8'h78: c=8'hbc;
+    229             1                        104     	   8'h79: c=8'hb6;
+    230             1                         87     	   8'h7a: c=8'hda;
+    231             1                        103     	   8'h7b: c=8'h21;
+    232             1                         91     	   8'h7c: c=8'h10;
+    233             1                        102     	   8'h7d: c=8'hff;
+    234             1                         91     	   8'h7e: c=8'hf3;
+    235             1                         68     	   8'h7f: c=8'hd2;
+    236             1                         78     	   8'h80: c=8'hcd;
+    237             1                         82     	   8'h81: c=8'h0c;
+    238             1                         69     	   8'h82: c=8'h13;
+    239             1                         75     	   8'h83: c=8'hec;
+    240             1                         73     	   8'h84: c=8'h5f;
+    241             1                         81     	   8'h85: c=8'h97;
+    242             1                         76     	   8'h86: c=8'h44;
+    243             1                         75     	   8'h87: c=8'h17;
+    244             1                         94     	   8'h88: c=8'hc4;
+    245             1                         93     	   8'h89: c=8'ha7;
+    246             1                         95     	   8'h8a: c=8'h7e;
+    247             1                         71     	   8'h8b: c=8'h3d;
+    248             1                        102     	   8'h8c: c=8'h64;
+    249             1                        100     	   8'h8d: c=8'h5d;
+    250             1                        104     	   8'h8e: c=8'h19;
+    251             1                         72     	   8'h8f: c=8'h73;
+    252             1                         89     	   8'h90: c=8'h60;
+    253             1                         74     	   8'h91: c=8'h81;
+    254             1                         94     	   8'h92: c=8'h4f;
+    255             1                         94     	   8'h93: c=8'hdc;
+    256             1                         76     	   8'h94: c=8'h22;
+    257             1                        113     	   8'h95: c=8'h2a;
+    258             1                         67     	   8'h96: c=8'h90;
+    259             1                        144     	   8'h97: c=8'h88;
+    260             1                         76     	   8'h98: c=8'h46;
+    261             1                         74     	   8'h99: c=8'hee;
+    262             1                         93     	   8'h9a: c=8'hb8;
+    263             1                        107     	   8'h9b: c=8'h14;
+    264             1                         95     	   8'h9c: c=8'hde;
+    265             1                         85     	   8'h9d: c=8'h5e;
+    266             1                         82     	   8'h9e: c=8'h0b;
+    267             1                        106     	   8'h9f: c=8'hdb;
+    268             1                         90     	   8'ha0: c=8'he0;
+    269             1                         94     	   8'ha1: c=8'h32;
+    270             1                         70     	   8'ha2: c=8'h3a;
+    271             1                         94     	   8'ha3: c=8'h0a;
+    272             1                         83     	   8'ha4: c=8'h49;
+    273             1                         79     	   8'ha5: c=8'h06;
+    274             1                        113     	   8'ha6: c=8'h24;
+    275             1                         81     	   8'ha7: c=8'h5c;
+    276             1                         82     	   8'ha8: c=8'hc2;
+    277             1                         78     	   8'ha9: c=8'hd3;
+    278             1                         79     	   8'haa: c=8'hac;
+    279             1                         91     	   8'hab: c=8'h62;
+    280             1                         72     	   8'hac: c=8'h91;
+    281             1                         68     	   8'had: c=8'h95;
+    282             1                         84     	   8'hae: c=8'he4;
+    283             1                         75     	   8'haf: c=8'h79;
+    284             1                         97     	   8'hb0: c=8'he7;
+    285             1                         89     	   8'hb1: c=8'hc8;
+    286             1                         88     	   8'hb2: c=8'h37;
+    287             1                         87     	   8'hb3: c=8'h6d;
+    288             1                         81     	   8'hb4: c=8'h8d;
+    289             1                         72     	   8'hb5: c=8'hd5;
+    290             1                         90     	   8'hb6: c=8'h4e;
+    291             1                         84     	   8'hb7: c=8'ha9;
+    292             1                         63     	   8'hb8: c=8'h6c;
+    293             1                         82     	   8'hb9: c=8'h56;
+    294             1                         86     	   8'hba: c=8'hf4;
+    295             1                         93     	   8'hbb: c=8'hea;
+    296             1                         81     	   8'hbc: c=8'h65;
+    297             1                         80     	   8'hbd: c=8'h7a;
+    298             1                         84     	   8'hbe: c=8'hae;
+    299             1                         75     	   8'hbf: c=8'h08;
+    300             1                         76     	   8'hc0: c=8'hba;
+    301             1                         91     	   8'hc1: c=8'h78;
+    302             1                        117     	   8'hc2: c=8'h25;
+    303             1                         75     	   8'hc3: c=8'h2e;
+    304             1                         80     	   8'hc4: c=8'h1c;
+    305             1                        102     	   8'hc5: c=8'ha6;
+    306             1                         66     	   8'hc6: c=8'hb4;
+    307             1                         83     	   8'hc7: c=8'hc6;
+    308             1                         63     	   8'hc8: c=8'he8;
+    309             1                         81     	   8'hc9: c=8'hdd;
+    310             1                         81     	   8'hca: c=8'h74;
+    311             1                        101     	   8'hcb: c=8'h1f;
+    312             1                         83     	   8'hcc: c=8'h4b;
+    313             1                        131     	   8'hcd: c=8'hbd;
+    314             1                         82     	   8'hce: c=8'h8b;
+    315             1                         74     	   8'hcf: c=8'h8a;
+    316             1                         77     	   8'hd0: c=8'h70;
+    317             1                         89     	   8'hd1: c=8'h3e;
+    318             1                         81     	   8'hd2: c=8'hb5;
+    319             1                         90     	   8'hd3: c=8'h66;
+    320             1                         67     	   8'hd4: c=8'h48;
+    321             1                         73     	   8'hd5: c=8'h03;
+    322             1                         90     	   8'hd6: c=8'hf6;
+    323             1                         74     	   8'hd7: c=8'h0e;
+    324             1                         86     	   8'hd8: c=8'h61;
+    325             1                         93     	   8'hd9: c=8'h35;
+    326             1                         96     	   8'hda: c=8'h57;
+    327             1                         90     	   8'hdb: c=8'hb9;
+    328             1                         91     	   8'hdc: c=8'h86;
+    329             1                         69     	   8'hdd: c=8'hc1;
+    330             1                         89     	   8'hde: c=8'h1d;
+    331             1                         76     	   8'hdf: c=8'h9e;
+    332             1                         79     	   8'he0: c=8'he1;
+    333             1                         63     	   8'he1: c=8'hf8;
+    334             1                         94     	   8'he2: c=8'h98;
+    335             1                         87     	   8'he3: c=8'h11;
+    336             1                         97     	   8'he4: c=8'h69;
+    337             1                         77     	   8'he5: c=8'hd9;
+    338             1                         61     	   8'he6: c=8'h8e;
+    339             1                         78     	   8'he7: c=8'h94;
+    340             1                         78     	   8'he8: c=8'h9b;
+    341             1                         71     	   8'he9: c=8'h1e;
+    342             1                        104     	   8'hea: c=8'h87;
+    343             1                        109     	   8'heb: c=8'he9;
+    344             1                        104     	   8'hec: c=8'hce;
+    345             1                         84     	   8'hed: c=8'h55;
+    346             1                        103     	   8'hee: c=8'h28;
+    347             1                         96     	   8'hef: c=8'hdf;
+    348             1                         73     	   8'hf0: c=8'h8c;
+    349             1                         77     	   8'hf1: c=8'ha1;
+    350             1                         90     	   8'hf2: c=8'h89;
+    351             1                         94     	   8'hf3: c=8'h0d;
+    352             1                         94     	   8'hf4: c=8'hbf;
+    353             1                        123     	   8'hf5: c=8'he6;
+    354             1                        109     	   8'hf6: c=8'h42;
+    355             1                        151     	   8'hf7: c=8'h68;
+    356             1                         83     	   8'hf8: c=8'h41;
+    357             1                        102     	   8'hf9: c=8'h99;
+    358             1                        102     	   8'hfa: c=8'h2d;
+    359             1                        282     	   8'hfb: c=8'h0f;
+                                         ***0***     All False Count
+Branch totals: 256 hits of 257 branches = 99.61%
+
+------------------------------------CASE Branch------------------------------------
+    368                                     5640     Count coming in to CASE
+    369             1                        564     function[0:31] rconx;
+    370             1                        564     input [0:31] r; 
+    371             1                        564     begin
+    372             1                        564      case(r)
+    373             1                        564         4'h1: rconx=32'h01000000;
+    374             1                        564         4'h2: rconx=32'h02000000;
+    375             1                        564         4'h3: rconx=32'h04000000;
+    376             1                        564         4'h4: rconx=32'h08000000;
+    377             1                        564         4'h5: rconx=32'h10000000;
+    378             1                        564         4'h6: rconx=32'h20000000;
+    379             1                    ***0***         4'h7: rconx=32'h40000000;
+Branch totals: 10 hits of 11 branches = 90.90%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       1         1         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for Design Unit work.keyExpansion --
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+  File AES_Encrypt.v
+----------------Focused Condition View-------------------
+Line       65 Item    1  ((i % 4) == 0)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  ((i % 4) == 0)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  ((i % 4) == 0)_0      -                             
+  Row   2:          1  ((i % 4) == 0)_1      -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                     284       283         1    99.64%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.keyExpansion --
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+    1                                                /* This RTL code is sourced from the following GitHub repository:
+    2                                                   https://github.com/michaelehab/AES-Verilog
+    3                                                   Note: The variable 'new' has been renamed to 'new1' for SystemVerilog compatibility.
+    4                                                 */
+    5                                                module keyExpansion #(parameter nk=4,parameter nr=10)(key,w);
+    6                                                // The first [(nk*32)-1 ]-bit key that we use to generate the rest of the keys of the other rounds.
+    7                                                // [(nk*32)-1 ] is the key length (128-bit key, 192-bit key or 256-bit key for nK=4,6 or 8 respectively).
+    8                                                input [0 : (nk * 32) - 1] key;  
+    9                                                // w represents the array that will store all the generated keys of all rounds.
+    10                                               /* [(128 * (nr + 1)) - 1] this formula is meant to calculate the length of W ; so that it can store all the
+    11                                               generated keys of all rounds.*/ 
+    12                                               output reg [0 : (128 * (nr + 1)) - 1] w;
+    13                                               reg [0:31] temp;
+    14                                               reg [0:31] r;
+    15                                               reg [0:31] rot; // It stores the returned value from the function rotword().
+    16                                               reg [0:31] x;	//It stores the returned value from the function subwordx().
+    17                                               reg [0:31] rconv; //It stores the returned value from the function rconx().
+    18                                               reg [0:31]new1; 
+    19                                               
+    20                                               integer i;
+    21                                               /*
+    22                                               	We generate all the keys needed in the encryption and decryption at the beginning of the encryption or decryption
+    23                                                and store them, then we use them in the AES_Encrypt and AES_Decrypt modules as needed according to the current 
+    24                                                round.
+    25                                               */
+    26                                               /*
+    27                                                The functions:
+    28                                                1) subwordx() applies a table lookup to all to all four bytes of the sent word. subwordx() calls the function
+    29                                               	 c() four times, each time it sends to c() 1-byte to perform the table lookup on it.
+    30                                                2) rconx() contains the values given by [x^(i-1),{00},{00},{00}], with x^(i-1) being powers 
+    31                                               	 of x (x is denoted as {02}) in the field GF(28).
+    32                                                3) rotword() applies a cyclic shift of the bytes in a word. For example,{09cf4f3c} is changed into {cf4f3c09}
+    33                                               	 after applying this function.
+    34                                               */
+    35                                               
+    36                                               /*
+    37                                               		The pseudo-code of the this algorithm is found in the NIST.pdf attached to the repository with some modification
+    38                                               	in the code to fit with verilog.
+    39                                               */
+    40                                               /*
+    41                                               		For simplicity, We are going to explain the storing mechanism of the generated keys on an example of
+    42                                               	128-bit key.It would be easy to apply the same concept on 192-bit and 256-bit keys. We would explain it in one 
+    43                                               	round only. The next rounds would perform the same operations.
+    44                                               	
+    45                                               	-The example:
+    46                                               		-Note that in case of 128-bit key w[0:1407].
+    47                                               		
+    48                                               		1) when w=key then w= {1279*{0}:key} where 1279*{0} means that the first 1279 bits are all zero valued
+    49                                               			and the end of the w array contains the current 128-bit key.
+    50                                               		2) when temp = w[(128 * (nr + 1) - 32) +: 32] then temp=w[1376 +:32] so temp in the first round would contain
+    51                                               			the last 32-bit word of the the current key. 
+    52                                               		3) After performing (temp = SubWord(RotWord(temp)) xor Rcon[i/Nk]) or (temp = SubWord(temp)), We would perform
+    53                                               			(new1 = w[(128*(nr+1)-(nk*32))+:32] ^ temp) which is (new1=w[1280+:32] ^ temp) in the first round,
+    54                                               			where w[(128*(nr+1)-(nk*32))+:32] here is equivelent to w[i-Nk] in the pseudo-code. Now we have the new1
+    55                                               			generated key word (new1) and we need to add it at the end of (W) array.
+    56                                               		4) We would shift W by 32-bit to the left to empty space to the new1 generated key word.
+    57                                               		5) w = {w[0 : (128 * (nr + 1) - 32) - 1], new1} is w={w[0:1375],new1} where w now contains w={1247*{0}:key:new1} 
+    58                                               			where 1247*{0} means that the first 1247 bits are all zero valued and they are followed by the original 
+    59                                               			128-bit key, which are followed by the new1 generated 32-bit key.
+    60              1                        564     		6) Repeat this process for the rest of the rounds.At the end of all the rounds we would have all the W array
+    61                                               			filled with all the keys.
+    62              1                        564     	
+    63              1                        564     */
+    63              2                      22560     
+    64              1                      22560     always@* begin
+    65                                               //The first [(nk*32)-1 ]-bit key is stored in W.
+    66              1                       5640     	w = key;    
+    67              1                       5640     	for(i = nk; i < 4*(nr + 1); i = i + 1) begin
+    68              1                       5640     	temp = w[(128 * (nr + 1) - 32) +: 32];
+    69              1                       5640     	if(i % nk == 0) begin
+    70                                               		rot = rotword(temp); // A call to the function rotword() is done and the returned value is stored in rot.
+    71                                               		x = subwordx (rot);	//A call to the function subwordx() is done and the returned value is stored in x.
+    72                                               		rconv = rconx (i/nk); //A call to the function rconx() is done and the returned value is stored in rconv.
+    73                                               		temp = x ^ rconv;   
+    74              1                      22560     	end
+    75                                               	else if(nk >6 && i % nk == 4) begin
+    76              1                      22560     		temp = subwordx(temp);
+    77              1                      22560     	end
+    78                                               	new1 = (w[(128*(nr+1)-(nk*32))+:32] ^ temp);
+    79                                               	// We would shift W by 32 bit to the left to add the new1 generated key word (new1) at its end.
+    80                                               	w = w << 32;
+    81                                               	w = {w[0 : (128 * (nr + 1) - 32) - 1], new1};
+    82                                               end
+    83                                               
+    84                                               end
+    85                                               
+    86                                               
+    87              1                       5640     
+    88                                               function [0:31] rotword;
+    89                                               input [0:31] x;
+    90                                               begin
+    91                                               		rotword={x[8:31],x[0:7]};
+    92                                               end
+    93                                               endfunction
+    94              1                       5640     
+    95              1                       5640     function [0:31] subwordx;
+    96              1                       5640     input [0:31] a;
+    97              1                       5640     begin
+    98                                               subwordx[0:7]=c(a[0:7]);
+    99                                               subwordx[8:15]=c(a[8:15]);
+    100                                              subwordx[16:23]=c(a[16:23]);
+    101                                              subwordx[24:31]=c(a[24:31]);
+    102                                              end
+    103                                              endfunction
+    104             1                        306     
+    105             1                        119     function [7:0] c(input [7:0] a);  
+    106             1                         95     begin
+    107             1                         73         case (a)
+    108             1                         98           8'h00: c=8'h63;
+    109             1                         98     	   8'h01: c=8'h7c;
+    110             1                        105     	   8'h02: c=8'h77;
+    111             1                         77     	   8'h03: c=8'h7b;
+    112             1                        110     	   8'h04: c=8'hf2;
+    113             1                         92     	   8'h05: c=8'h6b;
+    114             1                         89     	   8'h06: c=8'h6f;
+    115             1                         87     	   8'h07: c=8'hc5;
+    116             1                         84     	   8'h08: c=8'h30;
+    117             1                         83     	   8'h09: c=8'h01;
+    118             1                         92     	   8'h0a: c=8'h67;
+    119             1                         98     	   8'h0b: c=8'h2b;
+    120             1                        110     	   8'h0c: c=8'hfe;
+    121             1                         79     	   8'h0d: c=8'hd7;
+    122             1                         84     	   8'h0e: c=8'hab;
+    123             1                         99     	   8'h0f: c=8'h76;
+    124             1                         94     	   8'h10: c=8'hca;
+    125             1                         81     	   8'h11: c=8'h82;
+    126             1                        148     	   8'h12: c=8'hc9;
+    127             1                        131     	   8'h13: c=8'h7d;
+    128             1                         80     	   8'h14: c=8'hfa;
+    129             1                         86     	   8'h15: c=8'h59;
+    130             1                         69     	   8'h16: c=8'h47;
+    131             1                         90     	   8'h17: c=8'hf0;
+    132             1                         61     	   8'h18: c=8'had;
+    133             1                         92     	   8'h19: c=8'hd4;
+    134             1                         84     	   8'h1a: c=8'ha2;
+    135             1                         80     	   8'h1b: c=8'haf;
+    136             1                        101     	   8'h1c: c=8'h9c;
+    137             1                         80     	   8'h1d: c=8'ha4;
+    138             1                         88     	   8'h1e: c=8'h72;
+    139             1                         66     	   8'h1f: c=8'hc0;
+    140             1                         85     	   8'h20: c=8'hb7;
+    141             1                         76     	   8'h21: c=8'hfd;
+    142             1                         90     	   8'h22: c=8'h93;
+    143             1                         71     	   8'h23: c=8'h26;
+    144             1                         93     	   8'h24: c=8'h36;
+    145             1                         70     	   8'h25: c=8'h3f;
+    146             1                         72     	   8'h26: c=8'hf7;
+    147             1                        100     	   8'h27: c=8'hcc;
+    148             1                         82     	   8'h28: c=8'h34;
+    149             1                         90     	   8'h29: c=8'ha5;
+    150             1                         75     	   8'h2a: c=8'he5;
+    151             1                         80     	   8'h2b: c=8'hf1;
+    152             1                         80     	   8'h2c: c=8'h71;
+    153             1                         73     	   8'h2d: c=8'hd8;
+    154             1                         73     	   8'h2e: c=8'h31;
+    155             1                         96     	   8'h2f: c=8'h15;
+    156             1                         84     	   8'h30: c=8'h04;
+    157             1                         66     	   8'h31: c=8'hc7;
+    158             1                         75     	   8'h32: c=8'h23;
+    159             1                         84     	   8'h33: c=8'hc3;
+    160             1                         74     	   8'h34: c=8'h18;
+    161             1                         77     	   8'h35: c=8'h96;
+    162             1                         78     	   8'h36: c=8'h05;
+    163             1                         74     	   8'h37: c=8'h9a;
+    164             1                         96     	   8'h38: c=8'h07;
+    165             1                         74     	   8'h39: c=8'h12;
+    166             1                         76     	   8'h3a: c=8'h80;
+    167             1                         94     	   8'h3b: c=8'he2;
+    168             1                         89     	   8'h3c: c=8'heb;
+    169             1                         98     	   8'h3d: c=8'h27;
+    170             1                         80     	   8'h3e: c=8'hb2;
+    171             1                         75     	   8'h3f: c=8'h75;
+    172             1                         85     	   8'h40: c=8'h09;
+    173             1                        102     	   8'h41: c=8'h83;
+    174             1                         79     	   8'h42: c=8'h2c;
+    175             1                        117     	   8'h43: c=8'h1a;
+    176             1                        101     	   8'h44: c=8'h1b;
+    177             1                         89     	   8'h45: c=8'h6e;
+    178             1                         76     	   8'h46: c=8'h5a;
+    179             1                        110     	   8'h47: c=8'ha0;
+    180             1                         94     	   8'h48: c=8'h52;
+    181             1                         94     	   8'h49: c=8'h3b;
+    182             1                         89     	   8'h4a: c=8'hd6;
+    183             1                         70     	   8'h4b: c=8'hb3;
+    184             1                         91     	   8'h4c: c=8'h29;
+    185             1                        102     	   8'h4d: c=8'he3;
+    186             1                         74     	   8'h4e: c=8'h2f;
+    187             1                         52     	   8'h4f: c=8'h84;
+    188             1                         84     	   8'h50: c=8'h53;
+    189             1                         70     	   8'h51: c=8'hd1;
+    190             1                         81     	   8'h52: c=8'h00;
+    191             1                         71     	   8'h53: c=8'hed;
+    192             1                         83     	   8'h54: c=8'h20;
+    193             1                         77     	   8'h55: c=8'hfc;
+    194             1                         93     	   8'h56: c=8'hb1;
+    195             1                         80     	   8'h57: c=8'h5b;
+    196             1                         82     	   8'h58: c=8'h6a;
+    197             1                         80     	   8'h59: c=8'hcb;
+    198             1                         66     	   8'h5a: c=8'hbe;
+    199             1                         75     	   8'h5b: c=8'h39;
+    200             1                        105     	   8'h5c: c=8'h4a;
+    201             1                         82     	   8'h5d: c=8'h4c;
+    202             1                        108     	   8'h5e: c=8'h58;
+    203             1                        166     	   8'h5f: c=8'hcf;
+    204             1                         83     	   8'h60: c=8'hd0;
+    205             1                         67     	   8'h61: c=8'hef;
+    206             1                        103     	   8'h62: c=8'haa;
+    207             1                         80     	   8'h63: c=8'hfb;
+    208             1                         86     	   8'h64: c=8'h43;
+    209             1                         65     	   8'h65: c=8'h4d;
+    210             1                        113     	   8'h66: c=8'h33;
+    211             1                         88     	   8'h67: c=8'h85;
+    212             1                         78     	   8'h68: c=8'h45;
+    213             1                         77     	   8'h69: c=8'hf9;
+    214             1                         88     	   8'h6a: c=8'h02;
+    215             1                         91     	   8'h6b: c=8'h7f;
+    216             1                         81     	   8'h6c: c=8'h50;
+    217             1                         76     	   8'h6d: c=8'h3c;
+    218             1                         70     	   8'h6e: c=8'h9f;
+    219             1                         77     	   8'h6f: c=8'ha8;
+    220             1                         71     	   8'h70: c=8'h51;
+    221             1                         71     	   8'h71: c=8'ha3;
+    222             1                         85     	   8'h72: c=8'h40;
+    223             1                         90     	   8'h73: c=8'h8f;
+    224             1                         84     	   8'h74: c=8'h92;
+    225             1                         83     	   8'h75: c=8'h9d;
+    226             1                         68     	   8'h76: c=8'h38;
+    227             1                         73     	   8'h77: c=8'hf5;
+    228             1                         73     	   8'h78: c=8'hbc;
+    229             1                        104     	   8'h79: c=8'hb6;
+    230             1                         87     	   8'h7a: c=8'hda;
+    231             1                        103     	   8'h7b: c=8'h21;
+    232             1                         91     	   8'h7c: c=8'h10;
+    233             1                        102     	   8'h7d: c=8'hff;
+    234             1                         91     	   8'h7e: c=8'hf3;
+    235             1                         68     	   8'h7f: c=8'hd2;
+    236             1                         78     	   8'h80: c=8'hcd;
+    237             1                         82     	   8'h81: c=8'h0c;
+    238             1                         69     	   8'h82: c=8'h13;
+    239             1                         75     	   8'h83: c=8'hec;
+    240             1                         73     	   8'h84: c=8'h5f;
+    241             1                         81     	   8'h85: c=8'h97;
+    242             1                         76     	   8'h86: c=8'h44;
+    243             1                         75     	   8'h87: c=8'h17;
+    244             1                         94     	   8'h88: c=8'hc4;
+    245             1                         93     	   8'h89: c=8'ha7;
+    246             1                         95     	   8'h8a: c=8'h7e;
+    247             1                         71     	   8'h8b: c=8'h3d;
+    248             1                        102     	   8'h8c: c=8'h64;
+    249             1                        100     	   8'h8d: c=8'h5d;
+    250             1                        104     	   8'h8e: c=8'h19;
+    251             1                         72     	   8'h8f: c=8'h73;
+    252             1                         89     	   8'h90: c=8'h60;
+    253             1                         74     	   8'h91: c=8'h81;
+    254             1                         94     	   8'h92: c=8'h4f;
+    255             1                         94     	   8'h93: c=8'hdc;
+    256             1                         76     	   8'h94: c=8'h22;
+    257             1                        113     	   8'h95: c=8'h2a;
+    258             1                         67     	   8'h96: c=8'h90;
+    259             1                        144     	   8'h97: c=8'h88;
+    260             1                         76     	   8'h98: c=8'h46;
+    261             1                         74     	   8'h99: c=8'hee;
+    262             1                         93     	   8'h9a: c=8'hb8;
+    263             1                        107     	   8'h9b: c=8'h14;
+    264             1                         95     	   8'h9c: c=8'hde;
+    265             1                         85     	   8'h9d: c=8'h5e;
+    266             1                         82     	   8'h9e: c=8'h0b;
+    267             1                        106     	   8'h9f: c=8'hdb;
+    268             1                         90     	   8'ha0: c=8'he0;
+    269             1                         94     	   8'ha1: c=8'h32;
+    270             1                         70     	   8'ha2: c=8'h3a;
+    271             1                         94     	   8'ha3: c=8'h0a;
+    272             1                         83     	   8'ha4: c=8'h49;
+    273             1                         79     	   8'ha5: c=8'h06;
+    274             1                        113     	   8'ha6: c=8'h24;
+    275             1                         81     	   8'ha7: c=8'h5c;
+    276             1                         82     	   8'ha8: c=8'hc2;
+    277             1                         78     	   8'ha9: c=8'hd3;
+    278             1                         79     	   8'haa: c=8'hac;
+    279             1                         91     	   8'hab: c=8'h62;
+    280             1                         72     	   8'hac: c=8'h91;
+    281             1                         68     	   8'had: c=8'h95;
+    282             1                         84     	   8'hae: c=8'he4;
+    283             1                         75     	   8'haf: c=8'h79;
+    284             1                         97     	   8'hb0: c=8'he7;
+    285             1                         89     	   8'hb1: c=8'hc8;
+    286             1                         88     	   8'hb2: c=8'h37;
+    287             1                         87     	   8'hb3: c=8'h6d;
+    288             1                         81     	   8'hb4: c=8'h8d;
+    289             1                         72     	   8'hb5: c=8'hd5;
+    290             1                         90     	   8'hb6: c=8'h4e;
+    291             1                         84     	   8'hb7: c=8'ha9;
+    292             1                         63     	   8'hb8: c=8'h6c;
+    293             1                         82     	   8'hb9: c=8'h56;
+    294             1                         86     	   8'hba: c=8'hf4;
+    295             1                         93     	   8'hbb: c=8'hea;
+    296             1                         81     	   8'hbc: c=8'h65;
+    297             1                         80     	   8'hbd: c=8'h7a;
+    298             1                         84     	   8'hbe: c=8'hae;
+    299             1                         75     	   8'hbf: c=8'h08;
+    300             1                         76     	   8'hc0: c=8'hba;
+    301             1                         91     	   8'hc1: c=8'h78;
+    302             1                        117     	   8'hc2: c=8'h25;
+    303             1                         75     	   8'hc3: c=8'h2e;
+    304             1                         80     	   8'hc4: c=8'h1c;
+    305             1                        102     	   8'hc5: c=8'ha6;
+    306             1                         66     	   8'hc6: c=8'hb4;
+    307             1                         83     	   8'hc7: c=8'hc6;
+    308             1                         63     	   8'hc8: c=8'he8;
+    309             1                         81     	   8'hc9: c=8'hdd;
+    310             1                         81     	   8'hca: c=8'h74;
+    311             1                        101     	   8'hcb: c=8'h1f;
+    312             1                         83     	   8'hcc: c=8'h4b;
+    313             1                        131     	   8'hcd: c=8'hbd;
+    314             1                         82     	   8'hce: c=8'h8b;
+    315             1                         74     	   8'hcf: c=8'h8a;
+    316             1                         77     	   8'hd0: c=8'h70;
+    317             1                         89     	   8'hd1: c=8'h3e;
+    318             1                         81     	   8'hd2: c=8'hb5;
+    319             1                         90     	   8'hd3: c=8'h66;
+    320             1                         67     	   8'hd4: c=8'h48;
+    321             1                         73     	   8'hd5: c=8'h03;
+    322             1                         90     	   8'hd6: c=8'hf6;
+    323             1                         74     	   8'hd7: c=8'h0e;
+    324             1                         86     	   8'hd8: c=8'h61;
+    325             1                         93     	   8'hd9: c=8'h35;
+    326             1                         96     	   8'hda: c=8'h57;
+    327             1                         90     	   8'hdb: c=8'hb9;
+    328             1                         91     	   8'hdc: c=8'h86;
+    329             1                         69     	   8'hdd: c=8'hc1;
+    330             1                         89     	   8'hde: c=8'h1d;
+    331             1                         76     	   8'hdf: c=8'h9e;
+    332             1                         79     	   8'he0: c=8'he1;
+    333             1                         63     	   8'he1: c=8'hf8;
+    334             1                         94     	   8'he2: c=8'h98;
+    335             1                         87     	   8'he3: c=8'h11;
+    336             1                         97     	   8'he4: c=8'h69;
+    337             1                         77     	   8'he5: c=8'hd9;
+    338             1                         61     	   8'he6: c=8'h8e;
+    339             1                         78     	   8'he7: c=8'h94;
+    340             1                         78     	   8'he8: c=8'h9b;
+    341             1                         71     	   8'he9: c=8'h1e;
+    342             1                        104     	   8'hea: c=8'h87;
+    343             1                        109     	   8'heb: c=8'he9;
+    344             1                        104     	   8'hec: c=8'hce;
+    345             1                         84     	   8'hed: c=8'h55;
+    346             1                        103     	   8'hee: c=8'h28;
+    347             1                         96     	   8'hef: c=8'hdf;
+    348             1                         73     	   8'hf0: c=8'h8c;
+    349             1                         77     	   8'hf1: c=8'ha1;
+    350             1                         90     	   8'hf2: c=8'h89;
+    351             1                         94     	   8'hf3: c=8'h0d;
+    352             1                         94     	   8'hf4: c=8'hbf;
+    353             1                        123     	   8'hf5: c=8'he6;
+    354             1                        109     	   8'hf6: c=8'h42;
+    355             1                        151     	   8'hf7: c=8'h68;
+    356             1                         83     	   8'hf8: c=8'h41;
+    357             1                        102     	   8'hf9: c=8'h99;
+    358             1                        102     	   8'hfa: c=8'h2d;
+    359             1                        282     	   8'hfb: c=8'h0f;
+    360                                              	   8'hfc: c=8'hb0;
+    361                                              	   8'hfd: c=8'h54;
+    362                                              	   8'hfe: c=8'hbb;
+    363                                              	   8'hff: c=8'h16;
+    364                                              	endcase
+    365                                              end
+    366                                              endfunction
+    367                                              
+    368                                              
+    369             1                        564     function[0:31] rconx;
+    370             1                        564     input [0:31] r; 
+    371             1                        564     begin
+    372             1                        564      case(r)
+    373             1                        564         4'h1: rconx=32'h01000000;
+    374             1                        564         4'h2: rconx=32'h02000000;
+    375             1                        564         4'h3: rconx=32'h04000000;
+    376             1                        564         4'h4: rconx=32'h08000000;
+    377             1                        564         4'h5: rconx=32'h10000000;
+    378             1                        564         4'h6: rconx=32'h20000000;
+    379             1                    ***0***         4'h7: rconx=32'h40000000;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        384       256       128    66.66%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.keyExpansion
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                           i[0-31]           0           0        0.00 
+                                        new1[0-31]           1           1      100.00 
+                                       rconv[0-31]           0           0        0.00 
+                                         rot[0-31]           1           1      100.00 
+                                        temp[0-31]           1           1      100.00 
+                                           x[0-31]           1           1      100.00 
+
+Total Node Count     =        192 
+Toggled Node Count   =        128 
+Untoggled Node Count =         64 
+
+Toggle Coverage      =      66.66% (256 of 384 bins)
+
+=================================================================================
+=== Design Unit: work.mixColumns
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.mixColumns
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+------------------------------------IF Branch------------------------------------
+    715                                   894312     Count coming in to IF
+    715             1                     442842     	input [7:0] x;
+    716             1                     451470     	begin 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      19        19         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.mixColumns --
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+    704                                              
+    705                                              assign out = key ^ data;
+    706                                              
+    707                                              endmodule
+    708                                              module mixColumns(state_in,state_out);
+    709                                              
+    710                                              input [127:0] state_in;
+    711                                              output[127:0] state_out;
+    712                                              
+    713                                              
+    714                                              function [7:0] mb2; //multiply by 2
+    715             1                     442842     	input [7:0] x;
+    716             1                     451470     	begin 
+    717                                              			/* multiplication by 2 is shifting on bit to the left, and if the original 8 bits had a 1 @ MSB,
+    718                                              			xor the result with {1b}*/
+    719                                              			if(x[7] == 1) mb2 = ((x << 1) ^ 8'h1b);
+    720                                              			else mb2 = x << 1; 
+    721                                              	end 	
+    722                                              endfunction
+    723                                              
+    724                                              
+    725                                              /* 
+    726                                              	multiplication by 3 is done by:
+    727                                              		multiplication by {02} xor(the original x)
+    728                                              		so that 2+1=3. where xor is the addition of elements in finite fields
+    729                                              */
+    730             1                     447156     function [7:0] mb3; //multiply by 3
+    731                                              	input [7:0] x;
+    732                                              	begin 
+    733                                              			
+    734                                              			mb3 = mb2(x) ^ x;
+    735                                              	end 
+    736                                              endfunction
+    737                                              
+    738                                              
+    739                                              
+    740                                              
+    741                                              genvar i;
+    742      1 (GI=0)                      27949     
+    742      1 (GI=1)                      27949     
+    742      1 (GI=2)                      27943     
+    742      1 (GI=3)                      27948     
+    743      1 (GI=0)                      27949     generate 
+    743      1 (GI=1)                      27949     
+    743      1 (GI=2)                      27943     
+    743      1 (GI=3)                      27948     
+    744      1 (GI=0)                      27949     for(i=0;i< 4;i=i+1) begin : m_col
+    744      1 (GI=1)                      27949     
+    744      1 (GI=2)                      27943     
+    744      1 (GI=3)                      27948     
+    745      1 (GI=0)                      27949     
+    745      1 (GI=1)                      27949     
+    745      1 (GI=2)                      27943     
+    745      1 (GI=3)                      27948     
+
+
+=================================================================================
+=== Design Unit: work.sbox
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                       257       256         1    99.61%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.sbox
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+------------------------------------CASE Branch------------------------------------
+    393                                   536274     Count coming in to CASE
+    394             1                       3453         
+    395             1                       2257         
+    396             1                       2253        always @(a)
+    397             1                       2046         case (a)
+    398             1                       2276           8'h00: c=8'h63;
+    399             1                       2081     	   8'h01: c=8'h7c;
+    400             1                       2101     	   8'h02: c=8'h77;
+    401             1                       2020     	   8'h03: c=8'h7b;
+    402             1                       2179     	   8'h04: c=8'hf2;
+    403             1                       2158     	   8'h05: c=8'h6b;
+    404             1                       2191     	   8'h06: c=8'h6f;
+    405             1                       2163     	   8'h07: c=8'hc5;
+    406             1                       2123     	   8'h08: c=8'h30;
+    407             1                       2100     	   8'h09: c=8'h01;
+    408             1                       2145     	   8'h0a: c=8'h67;
+    409             1                       2098     	   8'h0b: c=8'h2b;
+    410             1                       2234     	   8'h0c: c=8'hfe;
+    411             1                       2079     	   8'h0d: c=8'hd7;
+    412             1                       2184     	   8'h0e: c=8'hab;
+    413             1                       2043     	   8'h0f: c=8'h76;
+    414             1                       2116     	   8'h10: c=8'hca;
+    415             1                       2049     	   8'h11: c=8'h82;
+    416             1                       2124     	   8'h12: c=8'hc9;
+    417             1                       2104     	   8'h13: c=8'h7d;
+    418             1                       2111     	   8'h14: c=8'hfa;
+    419             1                       2118     	   8'h15: c=8'h59;
+    420             1                       1967     	   8'h16: c=8'h47;
+    421             1                       2021     	   8'h17: c=8'hf0;
+    422             1                       2054     	   8'h18: c=8'had;
+    423             1                       1963     	   8'h19: c=8'hd4;
+    424             1                       2068     	   8'h1a: c=8'ha2;
+    425             1                       2093     	   8'h1b: c=8'haf;
+    426             1                       2213     	   8'h1c: c=8'h9c;
+    427             1                       2128     	   8'h1d: c=8'ha4;
+    428             1                       2154     	   8'h1e: c=8'h72;
+    429             1                       2134     	   8'h1f: c=8'hc0;
+    430             1                       1986     	   8'h20: c=8'hb7;
+    431             1                       2110     	   8'h21: c=8'hfd;
+    432             1                       2087     	   8'h22: c=8'h93;
+    433             1                       1970     	   8'h23: c=8'h26;
+    434             1                       2087     	   8'h24: c=8'h36;
+    435             1                       2060     	   8'h25: c=8'h3f;
+    436             1                       2048     	   8'h26: c=8'hf7;
+    437             1                       2035     	   8'h27: c=8'hcc;
+    438             1                       2058     	   8'h28: c=8'h34;
+    439             1                       2145     	   8'h29: c=8'ha5;
+    440             1                       2052     	   8'h2a: c=8'he5;
+    441             1                       2037     	   8'h2b: c=8'hf1;
+    442             1                       2076     	   8'h2c: c=8'h71;
+    443             1                       2106     	   8'h2d: c=8'hd8;
+    444             1                       2003     	   8'h2e: c=8'h31;
+    445             1                       2191     	   8'h2f: c=8'h15;
+    446             1                       2044     	   8'h30: c=8'h04;
+    447             1                       2080     	   8'h31: c=8'hc7;
+    448             1                       2084     	   8'h32: c=8'h23;
+    449             1                       2080     	   8'h33: c=8'hc3;
+    450             1                       2132     	   8'h34: c=8'h18;
+    451             1                       2056     	   8'h35: c=8'h96;
+    452             1                       2036     	   8'h36: c=8'h05;
+    453             1                       2063     	   8'h37: c=8'h9a;
+    454             1                       2086     	   8'h38: c=8'h07;
+    455             1                       2010     	   8'h39: c=8'h12;
+    456             1                       2121     	   8'h3a: c=8'h80;
+    457             1                       2147     	   8'h3b: c=8'he2;
+    458             1                       2204     	   8'h3c: c=8'heb;
+    459             1                       2103     	   8'h3d: c=8'h27;
+    460             1                       2045     	   8'h3e: c=8'hb2;
+    461             1                       2163     	   8'h3f: c=8'h75;
+    462             1                       2115     	   8'h40: c=8'h09;
+    463             1                       2054     	   8'h41: c=8'h83;
+    464             1                       2107     	   8'h42: c=8'h2c;
+    465             1                       2101     	   8'h43: c=8'h1a;
+    466             1                       2185     	   8'h44: c=8'h1b;
+    467             1                       2085     	   8'h45: c=8'h6e;
+    468             1                       2108     	   8'h46: c=8'h5a;
+    469             1                       2089     	   8'h47: c=8'ha0;
+    470             1                       2016     	   8'h48: c=8'h52;
+    471             1                       2018     	   8'h49: c=8'h3b;
+    472             1                       2019     	   8'h4a: c=8'hd6;
+    473             1                       2095     	   8'h4b: c=8'hb3;
+    474             1                       2008     	   8'h4c: c=8'h29;
+    475             1                       2064     	   8'h4d: c=8'he3;
+    476             1                       2090     	   8'h4e: c=8'h2f;
+    477             1                       2020     	   8'h4f: c=8'h84;
+    478             1                       2102     	   8'h50: c=8'h53;
+    479             1                       2091     	   8'h51: c=8'hd1;
+    480             1                       2028     	   8'h52: c=8'h00;
+    481             1                       2025     	   8'h53: c=8'hed;
+    482             1                       2123     	   8'h54: c=8'h20;
+    483             1                       2018     	   8'h55: c=8'hfc;
+    484             1                       2013     	   8'h56: c=8'hb1;
+    485             1                       2060     	   8'h57: c=8'h5b;
+    486             1                       2138     	   8'h58: c=8'h6a;
+    487             1                       2069     	   8'h59: c=8'hcb;
+    488             1                       1963     	   8'h5a: c=8'hbe;
+    489             1                       1953     	   8'h5b: c=8'h39;
+    490             1                       2086     	   8'h5c: c=8'h4a;
+    491             1                       2037     	   8'h5d: c=8'h4c;
+    492             1                       2047     	   8'h5e: c=8'h58;
+    493             1                       2084     	   8'h5f: c=8'hcf;
+    494             1                       2123     	   8'h60: c=8'hd0;
+    495             1                       2118     	   8'h61: c=8'hef;
+    496             1                       2007     	   8'h62: c=8'haa;
+    497             1                       2077     	   8'h63: c=8'hfb;
+    498             1                       2082     	   8'h64: c=8'h43;
+    499             1                       2101     	   8'h65: c=8'h4d;
+    500             1                       2023     	   8'h66: c=8'h33;
+    501             1                       2067     	   8'h67: c=8'h85;
+    502             1                       2152     	   8'h68: c=8'h45;
+    503             1                       2040     	   8'h69: c=8'hf9;
+    504             1                       2087     	   8'h6a: c=8'h02;
+    505             1                       2140     	   8'h6b: c=8'h7f;
+    506             1                       2018     	   8'h6c: c=8'h50;
+    507             1                       2118     	   8'h6d: c=8'h3c;
+    508             1                       2062     	   8'h6e: c=8'h9f;
+    509             1                       2070     	   8'h6f: c=8'ha8;
+    510             1                       2127     	   8'h70: c=8'h51;
+    511             1                       2239     	   8'h71: c=8'ha3;
+    512             1                       2036     	   8'h72: c=8'h40;
+    513             1                       2132     	   8'h73: c=8'h8f;
+    514             1                       2037     	   8'h74: c=8'h92;
+    515             1                       2122     	   8'h75: c=8'h9d;
+    516             1                       2064     	   8'h76: c=8'h38;
+    517             1                       2168     	   8'h77: c=8'hf5;
+    518             1                       2098     	   8'h78: c=8'hbc;
+    519             1                       1987     	   8'h79: c=8'hb6;
+    520             1                       2059     	   8'h7a: c=8'hda;
+    521             1                       2157     	   8'h7b: c=8'h21;
+    522             1                       2225     	   8'h7c: c=8'h10;
+    523             1                       2179     	   8'h7d: c=8'hff;
+    524             1                       2073     	   8'h7e: c=8'hf3;
+    525             1                       2110     	   8'h7f: c=8'hd2;
+    526             1                       2052     	   8'h80: c=8'hcd;
+    527             1                       1978     	   8'h81: c=8'h0c;
+    528             1                       2029     	   8'h82: c=8'h13;
+    529             1                       2115     	   8'h83: c=8'hec;
+    530             1                       2081     	   8'h84: c=8'h5f;
+    531             1                       2073     	   8'h85: c=8'h97;
+    532             1                       2189     	   8'h86: c=8'h44;
+    533             1                       2095     	   8'h87: c=8'h17;
+    534             1                       2088     	   8'h88: c=8'hc4;
+    535             1                       2022     	   8'h89: c=8'ha7;
+    536             1                       2092     	   8'h8a: c=8'h7e;
+    537             1                       2107     	   8'h8b: c=8'h3d;
+    538             1                       2218     	   8'h8c: c=8'h64;
+    539             1                       2138     	   8'h8d: c=8'h5d;
+    540             1                       2020     	   8'h8e: c=8'h19;
+    541             1                       2032     	   8'h8f: c=8'h73;
+    542             1                       2059     	   8'h90: c=8'h60;
+    543             1                       2020     	   8'h91: c=8'h81;
+    544             1                       2101     	   8'h92: c=8'h4f;
+    545             1                       2105     	   8'h93: c=8'hdc;
+    546             1                       2049     	   8'h94: c=8'h22;
+    547             1                       2021     	   8'h95: c=8'h2a;
+    548             1                       2017     	   8'h96: c=8'h90;
+    549             1                       2087     	   8'h97: c=8'h88;
+    550             1                       1975     	   8'h98: c=8'h46;
+    551             1                       2081     	   8'h99: c=8'hee;
+    552             1                       2041     	   8'h9a: c=8'hb8;
+    553             1                       2009     	   8'h9b: c=8'h14;
+    554             1                       2154     	   8'h9c: c=8'hde;
+    555             1                       2103     	   8'h9d: c=8'h5e;
+    556             1                       2111     	   8'h9e: c=8'h0b;
+    557             1                       2028     	   8'h9f: c=8'hdb;
+    558             1                       2165     	   8'ha0: c=8'he0;
+    559             1                       2109     	   8'ha1: c=8'h32;
+    560             1                       2038     	   8'ha2: c=8'h3a;
+    561             1                       2121     	   8'ha3: c=8'h0a;
+    562             1                       2114     	   8'ha4: c=8'h49;
+    563             1                       1967     	   8'ha5: c=8'h06;
+    564             1                       2088     	   8'ha6: c=8'h24;
+    565             1                       2006     	   8'ha7: c=8'h5c;
+    566             1                       2123     	   8'ha8: c=8'hc2;
+    567             1                       2100     	   8'ha9: c=8'hd3;
+    568             1                       2010     	   8'haa: c=8'hac;
+    569             1                       2122     	   8'hab: c=8'h62;
+    570             1                       2042     	   8'hac: c=8'h91;
+    571             1                       2141     	   8'had: c=8'h95;
+    572             1                       2091     	   8'hae: c=8'he4;
+    573             1                       2032     	   8'haf: c=8'h79;
+    574             1                       2085     	   8'hb0: c=8'he7;
+    575             1                       2105     	   8'hb1: c=8'hc8;
+    576             1                       2077     	   8'hb2: c=8'h37;
+    577             1                       2050     	   8'hb3: c=8'h6d;
+    578             1                       2026     	   8'hb4: c=8'h8d;
+    579             1                       2053     	   8'hb5: c=8'hd5;
+    580             1                       2091     	   8'hb6: c=8'h4e;
+    581             1                       2144     	   8'hb7: c=8'ha9;
+    582             1                       2135     	   8'hb8: c=8'h6c;
+    583             1                       2079     	   8'hb9: c=8'h56;
+    584             1                       2096     	   8'hba: c=8'hf4;
+    585             1                       2054     	   8'hbb: c=8'hea;
+    586             1                       1997     	   8'hbc: c=8'h65;
+    587             1                       2030     	   8'hbd: c=8'h7a;
+    588             1                       2183     	   8'hbe: c=8'hae;
+    589             1                       2093     	   8'hbf: c=8'h08;
+    590             1                       2137     	   8'hc0: c=8'hba;
+    591             1                       2054     	   8'hc1: c=8'h78;
+    592             1                       2113     	   8'hc2: c=8'h25;
+    593             1                       2082     	   8'hc3: c=8'h2e;
+    594             1                       2111     	   8'hc4: c=8'h1c;
+    595             1                       2074     	   8'hc5: c=8'ha6;
+    596             1                       2043     	   8'hc6: c=8'hb4;
+    597             1                       2118     	   8'hc7: c=8'hc6;
+    598             1                       2099     	   8'hc8: c=8'he8;
+    599             1                       2095     	   8'hc9: c=8'hdd;
+    600             1                       2082     	   8'hca: c=8'h74;
+    601             1                       2075     	   8'hcb: c=8'h1f;
+    602             1                       2072     	   8'hcc: c=8'h4b;
+    603             1                       2135     	   8'hcd: c=8'hbd;
+    604             1                       2086     	   8'hce: c=8'h8b;
+    605             1                       2042     	   8'hcf: c=8'h8a;
+    606             1                       1943     	   8'hd0: c=8'h70;
+    607             1                       1965     	   8'hd1: c=8'h3e;
+    608             1                       2139     	   8'hd2: c=8'hb5;
+    609             1                       2081     	   8'hd3: c=8'h66;
+    610             1                       2043     	   8'hd4: c=8'h48;
+    611             1                       2087     	   8'hd5: c=8'h03;
+    612             1                       2061     	   8'hd6: c=8'hf6;
+    613             1                       2086     	   8'hd7: c=8'h0e;
+    614             1                       1980     	   8'hd8: c=8'h61;
+    615             1                       2080     	   8'hd9: c=8'h35;
+    616             1                       2132     	   8'hda: c=8'h57;
+    617             1                       2100     	   8'hdb: c=8'hb9;
+    618             1                       2008     	   8'hdc: c=8'h86;
+    619             1                       2099     	   8'hdd: c=8'hc1;
+    620             1                       2091     	   8'hde: c=8'h1d;
+    621             1                       2034     	   8'hdf: c=8'h9e;
+    622             1                       2211     	   8'he0: c=8'he1;
+    623             1                       2082     	   8'he1: c=8'hf8;
+    624             1                       2011     	   8'he2: c=8'h98;
+    625             1                       2151     	   8'he3: c=8'h11;
+    626             1                       2126     	   8'he4: c=8'h69;
+    627             1                       2043     	   8'he5: c=8'hd9;
+    628             1                       2164     	   8'he6: c=8'h8e;
+    629             1                       2108     	   8'he7: c=8'h94;
+    630             1                       2033     	   8'he8: c=8'h9b;
+    631             1                       2103     	   8'he9: c=8'h1e;
+    632             1                       2026     	   8'hea: c=8'h87;
+    633             1                       2136     	   8'heb: c=8'he9;
+    634             1                       2088     	   8'hec: c=8'hce;
+    635             1                       2117     	   8'hed: c=8'h55;
+    636             1                       2126     	   8'hee: c=8'h28;
+    637             1                       2093     	   8'hef: c=8'hdf;
+    638             1                       2091     	   8'hf0: c=8'h8c;
+    639             1                       2035     	   8'hf1: c=8'ha1;
+    640             1                       2106     	   8'hf2: c=8'h89;
+    641             1                       2190     	   8'hf3: c=8'h0d;
+    642             1                       2023     	   8'hf4: c=8'hbf;
+    643             1                       2044     	   8'hf5: c=8'he6;
+    644             1                       1964     	   8'hf6: c=8'h42;
+    645             1                       2250     	   8'hf7: c=8'h68;
+    646             1                       2116     	   8'hf8: c=8'h41;
+    647             1                       2274     	   8'hf9: c=8'h99;
+    648             1                       2281     	   8'hfa: c=8'h2d;
+    649             1                       2863     	   8'hfb: c=8'h0f;
+                                         ***0***     All False Count
+Branch totals: 256 hits of 257 branches = 99.61%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                     257       257         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.sbox --
+NOTE: The modification timestamp for source file 'AES_Encrypt.v' has been altered since compilation.
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File AES_Encrypt.v
+    384                                                endcase
+    385                                                end
+    386                                              endfunction
+    387                                              endmodule
+    388                                              module sbox(a,c);
+    389                                              
+    390                                              input  [7:0] a; 
+    391                                              output [7:0] c;
+    392             1                     536274         
+    393                                              reg [7:0] c;
+    394             1                       3453         
+    395             1                       2257         
+    396             1                       2253        always @(a)
+    397             1                       2046         case (a)
+    398             1                       2276           8'h00: c=8'h63;
+    399             1                       2081     	   8'h01: c=8'h7c;
+    400             1                       2101     	   8'h02: c=8'h77;
+    401             1                       2020     	   8'h03: c=8'h7b;
+    402             1                       2179     	   8'h04: c=8'hf2;
+    403             1                       2158     	   8'h05: c=8'h6b;
+    404             1                       2191     	   8'h06: c=8'h6f;
+    405             1                       2163     	   8'h07: c=8'hc5;
+    406             1                       2123     	   8'h08: c=8'h30;
+    407             1                       2100     	   8'h09: c=8'h01;
+    408             1                       2145     	   8'h0a: c=8'h67;
+    409             1                       2098     	   8'h0b: c=8'h2b;
+    410             1                       2234     	   8'h0c: c=8'hfe;
+    411             1                       2079     	   8'h0d: c=8'hd7;
+    412             1                       2184     	   8'h0e: c=8'hab;
+    413             1                       2043     	   8'h0f: c=8'h76;
+    414             1                       2116     	   8'h10: c=8'hca;
+    415             1                       2049     	   8'h11: c=8'h82;
+    416             1                       2124     	   8'h12: c=8'hc9;
+    417             1                       2104     	   8'h13: c=8'h7d;
+    418             1                       2111     	   8'h14: c=8'hfa;
+    419             1                       2118     	   8'h15: c=8'h59;
+    420             1                       1967     	   8'h16: c=8'h47;
+    421             1                       2021     	   8'h17: c=8'hf0;
+    422             1                       2054     	   8'h18: c=8'had;
+    423             1                       1963     	   8'h19: c=8'hd4;
+    424             1                       2068     	   8'h1a: c=8'ha2;
+    425             1                       2093     	   8'h1b: c=8'haf;
+    426             1                       2213     	   8'h1c: c=8'h9c;
+    427             1                       2128     	   8'h1d: c=8'ha4;
+    428             1                       2154     	   8'h1e: c=8'h72;
+    429             1                       2134     	   8'h1f: c=8'hc0;
+    430             1                       1986     	   8'h20: c=8'hb7;
+    431             1                       2110     	   8'h21: c=8'hfd;
+    432             1                       2087     	   8'h22: c=8'h93;
+    433             1                       1970     	   8'h23: c=8'h26;
+    434             1                       2087     	   8'h24: c=8'h36;
+    435             1                       2060     	   8'h25: c=8'h3f;
+    436             1                       2048     	   8'h26: c=8'hf7;
+    437             1                       2035     	   8'h27: c=8'hcc;
+    438             1                       2058     	   8'h28: c=8'h34;
+    439             1                       2145     	   8'h29: c=8'ha5;
+    440             1                       2052     	   8'h2a: c=8'he5;
+    441             1                       2037     	   8'h2b: c=8'hf1;
+    442             1                       2076     	   8'h2c: c=8'h71;
+    443             1                       2106     	   8'h2d: c=8'hd8;
+    444             1                       2003     	   8'h2e: c=8'h31;
+    445             1                       2191     	   8'h2f: c=8'h15;
+    446             1                       2044     	   8'h30: c=8'h04;
+    447             1                       2080     	   8'h31: c=8'hc7;
+    448             1                       2084     	   8'h32: c=8'h23;
+    449             1                       2080     	   8'h33: c=8'hc3;
+    450             1                       2132     	   8'h34: c=8'h18;
+    451             1                       2056     	   8'h35: c=8'h96;
+    452             1                       2036     	   8'h36: c=8'h05;
+    453             1                       2063     	   8'h37: c=8'h9a;
+    454             1                       2086     	   8'h38: c=8'h07;
+    455             1                       2010     	   8'h39: c=8'h12;
+    456             1                       2121     	   8'h3a: c=8'h80;
+    457             1                       2147     	   8'h3b: c=8'he2;
+    458             1                       2204     	   8'h3c: c=8'heb;
+    459             1                       2103     	   8'h3d: c=8'h27;
+    460             1                       2045     	   8'h3e: c=8'hb2;
+    461             1                       2163     	   8'h3f: c=8'h75;
+    462             1                       2115     	   8'h40: c=8'h09;
+    463             1                       2054     	   8'h41: c=8'h83;
+    464             1                       2107     	   8'h42: c=8'h2c;
+    465             1                       2101     	   8'h43: c=8'h1a;
+    466             1                       2185     	   8'h44: c=8'h1b;
+    467             1                       2085     	   8'h45: c=8'h6e;
+    468             1                       2108     	   8'h46: c=8'h5a;
+    469             1                       2089     	   8'h47: c=8'ha0;
+    470             1                       2016     	   8'h48: c=8'h52;
+    471             1                       2018     	   8'h49: c=8'h3b;
+    472             1                       2019     	   8'h4a: c=8'hd6;
+    473             1                       2095     	   8'h4b: c=8'hb3;
+    474             1                       2008     	   8'h4c: c=8'h29;
+    475             1                       2064     	   8'h4d: c=8'he3;
+    476             1                       2090     	   8'h4e: c=8'h2f;
+    477             1                       2020     	   8'h4f: c=8'h84;
+    478             1                       2102     	   8'h50: c=8'h53;
+    479             1                       2091     	   8'h51: c=8'hd1;
+    480             1                       2028     	   8'h52: c=8'h00;
+    481             1                       2025     	   8'h53: c=8'hed;
+    482             1                       2123     	   8'h54: c=8'h20;
+    483             1                       2018     	   8'h55: c=8'hfc;
+    484             1                       2013     	   8'h56: c=8'hb1;
+    485             1                       2060     	   8'h57: c=8'h5b;
+    486             1                       2138     	   8'h58: c=8'h6a;
+    487             1                       2069     	   8'h59: c=8'hcb;
+    488             1                       1963     	   8'h5a: c=8'hbe;
+    489             1                       1953     	   8'h5b: c=8'h39;
+    490             1                       2086     	   8'h5c: c=8'h4a;
+    491             1                       2037     	   8'h5d: c=8'h4c;
+    492             1                       2047     	   8'h5e: c=8'h58;
+    493             1                       2084     	   8'h5f: c=8'hcf;
+    494             1                       2123     	   8'h60: c=8'hd0;
+    495             1                       2118     	   8'h61: c=8'hef;
+    496             1                       2007     	   8'h62: c=8'haa;
+    497             1                       2077     	   8'h63: c=8'hfb;
+    498             1                       2082     	   8'h64: c=8'h43;
+    499             1                       2101     	   8'h65: c=8'h4d;
+    500             1                       2023     	   8'h66: c=8'h33;
+    501             1                       2067     	   8'h67: c=8'h85;
+    502             1                       2152     	   8'h68: c=8'h45;
+    503             1                       2040     	   8'h69: c=8'hf9;
+    504             1                       2087     	   8'h6a: c=8'h02;
+    505             1                       2140     	   8'h6b: c=8'h7f;
+    506             1                       2018     	   8'h6c: c=8'h50;
+    507             1                       2118     	   8'h6d: c=8'h3c;
+    508             1                       2062     	   8'h6e: c=8'h9f;
+    509             1                       2070     	   8'h6f: c=8'ha8;
+    510             1                       2127     	   8'h70: c=8'h51;
+    511             1                       2239     	   8'h71: c=8'ha3;
+    512             1                       2036     	   8'h72: c=8'h40;
+    513             1                       2132     	   8'h73: c=8'h8f;
+    514             1                       2037     	   8'h74: c=8'h92;
+    515             1                       2122     	   8'h75: c=8'h9d;
+    516             1                       2064     	   8'h76: c=8'h38;
+    517             1                       2168     	   8'h77: c=8'hf5;
+    518             1                       2098     	   8'h78: c=8'hbc;
+    519             1                       1987     	   8'h79: c=8'hb6;
+    520             1                       2059     	   8'h7a: c=8'hda;
+    521             1                       2157     	   8'h7b: c=8'h21;
+    522             1                       2225     	   8'h7c: c=8'h10;
+    523             1                       2179     	   8'h7d: c=8'hff;
+    524             1                       2073     	   8'h7e: c=8'hf3;
+    525             1                       2110     	   8'h7f: c=8'hd2;
+    526             1                       2052     	   8'h80: c=8'hcd;
+    527             1                       1978     	   8'h81: c=8'h0c;
+    528             1                       2029     	   8'h82: c=8'h13;
+    529             1                       2115     	   8'h83: c=8'hec;
+    530             1                       2081     	   8'h84: c=8'h5f;
+    531             1                       2073     	   8'h85: c=8'h97;
+    532             1                       2189     	   8'h86: c=8'h44;
+    533             1                       2095     	   8'h87: c=8'h17;
+    534             1                       2088     	   8'h88: c=8'hc4;
+    535             1                       2022     	   8'h89: c=8'ha7;
+    536             1                       2092     	   8'h8a: c=8'h7e;
+    537             1                       2107     	   8'h8b: c=8'h3d;
+    538             1                       2218     	   8'h8c: c=8'h64;
+    539             1                       2138     	   8'h8d: c=8'h5d;
+    540             1                       2020     	   8'h8e: c=8'h19;
+    541             1                       2032     	   8'h8f: c=8'h73;
+    542             1                       2059     	   8'h90: c=8'h60;
+    543             1                       2020     	   8'h91: c=8'h81;
+    544             1                       2101     	   8'h92: c=8'h4f;
+    545             1                       2105     	   8'h93: c=8'hdc;
+    546             1                       2049     	   8'h94: c=8'h22;
+    547             1                       2021     	   8'h95: c=8'h2a;
+    548             1                       2017     	   8'h96: c=8'h90;
+    549             1                       2087     	   8'h97: c=8'h88;
+    550             1                       1975     	   8'h98: c=8'h46;
+    551             1                       2081     	   8'h99: c=8'hee;
+    552             1                       2041     	   8'h9a: c=8'hb8;
+    553             1                       2009     	   8'h9b: c=8'h14;
+    554             1                       2154     	   8'h9c: c=8'hde;
+    555             1                       2103     	   8'h9d: c=8'h5e;
+    556             1                       2111     	   8'h9e: c=8'h0b;
+    557             1                       2028     	   8'h9f: c=8'hdb;
+    558             1                       2165     	   8'ha0: c=8'he0;
+    559             1                       2109     	   8'ha1: c=8'h32;
+    560             1                       2038     	   8'ha2: c=8'h3a;
+    561             1                       2121     	   8'ha3: c=8'h0a;
+    562             1                       2114     	   8'ha4: c=8'h49;
+    563             1                       1967     	   8'ha5: c=8'h06;
+    564             1                       2088     	   8'ha6: c=8'h24;
+    565             1                       2006     	   8'ha7: c=8'h5c;
+    566             1                       2123     	   8'ha8: c=8'hc2;
+    567             1                       2100     	   8'ha9: c=8'hd3;
+    568             1                       2010     	   8'haa: c=8'hac;
+    569             1                       2122     	   8'hab: c=8'h62;
+    570             1                       2042     	   8'hac: c=8'h91;
+    571             1                       2141     	   8'had: c=8'h95;
+    572             1                       2091     	   8'hae: c=8'he4;
+    573             1                       2032     	   8'haf: c=8'h79;
+    574             1                       2085     	   8'hb0: c=8'he7;
+    575             1                       2105     	   8'hb1: c=8'hc8;
+    576             1                       2077     	   8'hb2: c=8'h37;
+    577             1                       2050     	   8'hb3: c=8'h6d;
+    578             1                       2026     	   8'hb4: c=8'h8d;
+    579             1                       2053     	   8'hb5: c=8'hd5;
+    580             1                       2091     	   8'hb6: c=8'h4e;
+    581             1                       2144     	   8'hb7: c=8'ha9;
+    582             1                       2135     	   8'hb8: c=8'h6c;
+    583             1                       2079     	   8'hb9: c=8'h56;
+    584             1                       2096     	   8'hba: c=8'hf4;
+    585             1                       2054     	   8'hbb: c=8'hea;
+    586             1                       1997     	   8'hbc: c=8'h65;
+    587             1                       2030     	   8'hbd: c=8'h7a;
+    588             1                       2183     	   8'hbe: c=8'hae;
+    589             1                       2093     	   8'hbf: c=8'h08;
+    590             1                       2137     	   8'hc0: c=8'hba;
+    591             1                       2054     	   8'hc1: c=8'h78;
+    592             1                       2113     	   8'hc2: c=8'h25;
+    593             1                       2082     	   8'hc3: c=8'h2e;
+    594             1                       2111     	   8'hc4: c=8'h1c;
+    595             1                       2074     	   8'hc5: c=8'ha6;
+    596             1                       2043     	   8'hc6: c=8'hb4;
+    597             1                       2118     	   8'hc7: c=8'hc6;
+    598             1                       2099     	   8'hc8: c=8'he8;
+    599             1                       2095     	   8'hc9: c=8'hdd;
+    600             1                       2082     	   8'hca: c=8'h74;
+    601             1                       2075     	   8'hcb: c=8'h1f;
+    602             1                       2072     	   8'hcc: c=8'h4b;
+    603             1                       2135     	   8'hcd: c=8'hbd;
+    604             1                       2086     	   8'hce: c=8'h8b;
+    605             1                       2042     	   8'hcf: c=8'h8a;
+    606             1                       1943     	   8'hd0: c=8'h70;
+    607             1                       1965     	   8'hd1: c=8'h3e;
+    608             1                       2139     	   8'hd2: c=8'hb5;
+    609             1                       2081     	   8'hd3: c=8'h66;
+    610             1                       2043     	   8'hd4: c=8'h48;
+    611             1                       2087     	   8'hd5: c=8'h03;
+    612             1                       2061     	   8'hd6: c=8'hf6;
+    613             1                       2086     	   8'hd7: c=8'h0e;
+    614             1                       1980     	   8'hd8: c=8'h61;
+    615             1                       2080     	   8'hd9: c=8'h35;
+    616             1                       2132     	   8'hda: c=8'h57;
+    617             1                       2100     	   8'hdb: c=8'hb9;
+    618             1                       2008     	   8'hdc: c=8'h86;
+    619             1                       2099     	   8'hdd: c=8'hc1;
+    620             1                       2091     	   8'hde: c=8'h1d;
+    621             1                       2034     	   8'hdf: c=8'h9e;
+    622             1                       2211     	   8'he0: c=8'he1;
+    623             1                       2082     	   8'he1: c=8'hf8;
+    624             1                       2011     	   8'he2: c=8'h98;
+    625             1                       2151     	   8'he3: c=8'h11;
+    626             1                       2126     	   8'he4: c=8'h69;
+    627             1                       2043     	   8'he5: c=8'hd9;
+    628             1                       2164     	   8'he6: c=8'h8e;
+    629             1                       2108     	   8'he7: c=8'h94;
+    630             1                       2033     	   8'he8: c=8'h9b;
+    631             1                       2103     	   8'he9: c=8'h1e;
+    632             1                       2026     	   8'hea: c=8'h87;
+    633             1                       2136     	   8'heb: c=8'he9;
+    634             1                       2088     	   8'hec: c=8'hce;
+    635             1                       2117     	   8'hed: c=8'h55;
+    636             1                       2126     	   8'hee: c=8'h28;
+    637             1                       2093     	   8'hef: c=8'hdf;
+    638             1                       2091     	   8'hf0: c=8'h8c;
+    639             1                       2035     	   8'hf1: c=8'ha1;
+    640             1                       2106     	   8'hf2: c=8'h89;
+    641             1                       2190     	   8'hf3: c=8'h0d;
+    642             1                       2023     	   8'hf4: c=8'hbf;
+    643             1                       2044     	   8'hf5: c=8'he6;
+    644             1                       1964     	   8'hf6: c=8'h42;
+    645             1                       2250     	   8'hf7: c=8'h68;
+    646             1                       2116     	   8'hf8: c=8'h41;
+    647             1                       2274     	   8'hf9: c=8'h99;
+    648             1                       2281     	   8'hfa: c=8'h2d;
+    649             1                       2863     	   8'hfb: c=8'h0f;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.sbox
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                            c[0-7]         160         160      100.00 
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+
+Total Coverage By Design Unit (filtered view): 97.98%
+
