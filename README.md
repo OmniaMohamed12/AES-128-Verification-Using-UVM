@@ -28,5 +28,5 @@ vlog AES_Pack.svh AES_Top.sv +cover
 To simulate and run test with coverage analysis, use the following command:
 
 ```bash
-vsim -batch AES_Top -coverage -do "run -all; coverage report -codeAll -cvg -verbose"
+vsim -batch AES_Top -coverage -do "run -all; coverage report -codeAll -cvg -verbose" 
 ```
