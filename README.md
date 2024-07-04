@@ -4,7 +4,7 @@ This project focuses on the Verification of Advanced Encryption Standard (AES-12
 
 ## UVM Architecture
 
-![aes uvm env - Page 1](https://github.com/OmniaMohamed12/AES-128-Verification-Using-UVM/assets/110364388/4f4a3cf7-4ae6-4ff1-8285-fc4d1253dd52)
+![aes uvm env - Page 1 (1)](https://github.com/OmniaMohamed12/AES-128-Verification-Using-UVM/assets/110364388/2197052d-b997-45db-9777-add177133271)
 
 ## Coverage Results
 
