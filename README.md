@@ -16,7 +16,6 @@ This project focuses on the Verification of Advanced Encryption Standard (AES-12
   ![image](https://github.com/OmniaMohamed12/AES-128-Verification-Using-UVM/assets/110364388/5242c5d6-338b-4d96-951d-8914afa0d95f)
 
 
-Detailed coverage reports can be found in the `docs` directory, specifically in the `code_coverage_report.txt` file and `functional_coverage_report.txt` file.
 
 ## Compilation and Simulation Steps
 
